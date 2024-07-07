@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+// const conn = require('./db/conn')
 
 const app = express();
 
@@ -17,3 +18,5 @@ const UserRoutes = require("./routes/UserRoutes");
 app.use("/users", UserRoutes);
 
 app.listen(5000);
+
+

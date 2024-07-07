@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
-async function main() {
-  await mongoose.connect("mongodb://localhost:27017/getapet");
-  console.log("Conectou ao Mongoose!");
-}
+const mongoURL = "mongodb://localhost:27017/getapet";
 
-main().catch((err) => {
-  console.log(err);
-});
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose
+  .connect(mongoURL, mongooseOptions)
+  .then(() => console.log("Conectado ao MongoDB"))
+  .catch((err) => console.error("Erro ao conectar ao MongoDB", err));
 
 module.exports = mongoose;
