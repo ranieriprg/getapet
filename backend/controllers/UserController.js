@@ -169,6 +169,10 @@ module.exports = class UserController {
     }
     user.email = email;
 
+    if (req.file) {
+       user.image = req.file.filename;
+    }
+
     if (!phone) {
       res.status(422).json({ message: "O telefone é obrigatório!" });
       return;
