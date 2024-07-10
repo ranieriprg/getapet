@@ -170,7 +170,8 @@ module.exports = class UserController {
     user.email = email;
 
     if (req.file) {
-       user.image = req.file.filename;
+      image = req.file.filename;
+      user.image = image;
     }
 
     if (!phone) {
